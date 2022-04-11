@@ -1,0 +1,21 @@
+sudo: required
+language: generic
+services:
+  - docker
+
+before_install: 
+  - docker build -t dipt912/react-test -f  ./client/Dockerfile.dev .
+
+script:
+  - docker run dipt912/react-test npm test -- --coverage
+
+after_success: 
+  - docker build -t dipt912/multi-client ./client
+  - docker build -t dipt912/multi-nginx ./nginx
+  - docker build -t dipt912/multi-server ./server
+  - docker build -t dipt912/multi-worker ./worker
+  - echo "$DOCKER_PASSWORD" | docker login --u "$DOCKER_ID" --password-stdin 
+  - docker push dipt912/multi-client
+  - docker push dipt912/multi-nginx
+  - docker push dipt912/multi-server
+  - docker push dipt912/multi-worker
