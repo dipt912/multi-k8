@@ -3,10 +3,10 @@ services:
   - docker
 
 before_install: 
-  - docker build -t dipt912/react-test -f  ./client/Dockerfile.dev .
+  - docker build -t dipt912/react-test  ./client .
 
 script:
-  - docker run dipt912/react-test npm test -- --coverage
+  - docker run -e CI=true dipt912/react-test npm test
 
 after_success: 
   - docker build -t dipt912/multi-client ./client
