@@ -19,7 +19,7 @@ before_install:
   - gcloud version
   - gcloud components update kubectl
   - gcloud auth activate-service-account --key-file service-account.json
-  - glcoud config set project multi-k8s-347602
+  - gcloud config set project multi-k8s-347602
   - gcloud config set compute/zone us-central1-c
   - gcloud container clusters get-credentials multi-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin 
