@@ -17,7 +17,7 @@ spec:
           image: dipt912/multi-client
           resources:
             limits:
-              memory: "512Mi"
+              memory: "2Gi"
               cpu: "500m"
           ports:
           - containerPort: 3000
