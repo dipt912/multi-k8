@@ -17,8 +17,8 @@ spec:
         image: dipt912/multi-worker
         resources:
           limits:
-            memory: "64Mi"
-            cpu: "500m"
+            memory: "512Mi"
+            cpu: "250m"
         env:
           - name: REDIS_HOST
             value: redis-cluster-ip-service

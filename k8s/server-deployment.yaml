@@ -17,8 +17,8 @@ spec:
         image: dipt912/multi-server
         resources:
           limits:
-            memory: "128Mi"
-            cpu: "500m"
+            memory: "512Mi"
+            cpu: "250m"
         ports:
         - containerPort: 5000
         env:
