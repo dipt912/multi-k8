@@ -21,8 +21,11 @@ spec:
         image: postgres
         resources:
           limits:
-            memory: "256Mi"
-            cpu: "250m"
+              cpu: "1"
+              memory: 2Gi
+          requests:
+              cpu: 200m
+              memory: 1Gi
         ports:
         - containerPort: 5432
         volumeMounts:
